@@ -1,0 +1,4 @@
+"""
+Configuracion base de pytest.
+"""
+

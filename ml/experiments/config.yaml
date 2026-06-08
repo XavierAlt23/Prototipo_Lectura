@@ -1,0 +1,7 @@
+experiments:
+  - name: beto-baseline
+    model_type: transformer
+  - name: bilstm-baseline
+    model_type: recurrent
+  - name: cnn-baseline
+    model_type: convolutional

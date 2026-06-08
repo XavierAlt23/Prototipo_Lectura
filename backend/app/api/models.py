@@ -3,10 +3,16 @@ backend/app/api/models.py
 Endpoints para gestión de modelos
 """
 
-from fastapi import APIRouter, HTTPException
-from typing import List
+from fastapi import APIRouter
+from pydantic import BaseModel
 
 router = APIRouter(prefix="/models", tags=["models"])
+
+
+class ModelComparisonRequest(BaseModel):
+    model_1_id: int
+    model_2_id: int
+    metric: str = "f1_score"
 
 
 @router.get("")
@@ -48,7 +54,7 @@ async def get_model_metrics(model_id: int):
 
 
 @router.post("/compare")
-async def compare_models(model_1_id: int, model_2_id: int, metric: str = "f1_score"):
+async def compare_models(request: ModelComparisonRequest):
     """Compara dos modelos"""
     # Implementar
     return {

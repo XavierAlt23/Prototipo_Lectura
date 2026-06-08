@@ -12,6 +12,7 @@ import time
 from app.schemas.prediction import PredictionRequest, PredictionResponse, BatchPredictionRequest
 from app.services.ml_service import MLService
 from app.db.database import SessionLocal
+from app.models.prediction import Prediction
 
 logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/predictions", tags=["predictions"])

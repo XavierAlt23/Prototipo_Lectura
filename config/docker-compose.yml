@@ -1,0 +1,3 @@
+# Referencia: el docker-compose principal vive en la raiz del proyecto.
+include:
+  - ../docker-compose.yml

@@ -1,0 +1,17 @@
+project:
+  name: cyberbullying-detection
+  language: es
+
+data:
+  raw_dir: ml/data/raw
+  text_column: text
+  label_column: label
+  test_size: 0.15
+  validation_size: 0.15
+  random_seed: 42
+
+training:
+  batch_size: 16
+  epochs: 3
+  learning_rate: 0.00002
+  device: cpu

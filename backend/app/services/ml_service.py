@@ -3,10 +3,14 @@ backend/app/services/ml_service.py
 Servicio de Machine Learning
 """
 
-import torch
 import logging
 from typing import Dict, List
 from app.core.config import settings
+
+try:
+    import torch
+except ImportError:
+    torch = None
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +22,7 @@ class MLService:
     
     def __init__(self):
         """Inicializa el servicio de ML"""
-        self.device = torch.device(settings.DEVICE)
+        self.device = torch.device(settings.DEVICE) if torch else settings.DEVICE
         self.models_cache = {}
         logger.info(f"MLService inicializado en dispositivo: {self.device}")
     
